@@ -17,7 +17,6 @@ public class Alert extends JavaPlugin {
         Bukkit.getLogger() .info("Plugin Enabled");
         PluginManager pm = this.getServer() .getPluginManager();
         pm.registerEvents(new BlockListener() , this);
-         
     }
     
 }
