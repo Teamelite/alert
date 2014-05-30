@@ -10,6 +10,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -23,10 +24,11 @@ public class BlockListener implements Listener {
 
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent event) {
-        String name = event.getPlayer().toString();
-        String locText = event.getBlockPlaced().getLocation().toString();
+        Block pBlock = event.getBlockPlaced();
+        String name = event.getPlayer().getDisplayName();
+        String locText = pBlock.getLocation().getX() + ", " + pBlock.getLocation().getY() + ", " + pBlock.getLocation().getZ();
         String prefix = ChatColor.DARK_GRAY + "[" + ChatColor.DARK_RED + "Team" + ChatColor.GOLD + "Elite" + ChatColor.DARK_GRAY + "]";
-        String block = event.getBlockPlaced().toString();
+        Material block = event.getBlockPlaced().getType();
 
         if (event.getBlock().getType() == Material.FURNACE) {
             for (Player p : Bukkit.getOnlinePlayers()) {
