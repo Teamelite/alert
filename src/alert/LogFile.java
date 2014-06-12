@@ -1,13 +1,13 @@
 package alert;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class LogFile {
 
-    public static BufferedWriter pw;
+    public static PrintWriter pw;
     private static Alert plugin;
 
     public LogFile(Alert instance) {
@@ -19,8 +19,9 @@ public class LogFile {
 
             File pluginFolder = plugin.getDataFolder();
             File log = new File(plugin.getDataFolder(), "log.txt");
-            pw = new BufferedWriter(new FileWriter(log));
-
+            FileWriter fw = new FileWriter(log, true);
+            pw = new PrintWriter(fw);
+            
             if (!pluginFolder.exists()) {
                 pluginFolder.mkdir();
             }

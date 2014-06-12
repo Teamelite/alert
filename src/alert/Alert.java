@@ -15,7 +15,7 @@ public class Alert extends JavaPlugin {
         pm.registerEvents(new BlockPlace() , this);
         pm.registerEvents(new Interact() , this);
         LogFile log = new LogFile(this);
-        log.logFile("message");
+        log.logFile("Block place and interactions");
     }
 
     
