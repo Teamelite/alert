@@ -5,10 +5,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-/**
- *
- * @author Dave's
- */
 public class Alert extends JavaPlugin {
 
     
@@ -16,7 +12,12 @@ public class Alert extends JavaPlugin {
     public void onEnable() {
         Bukkit.getLogger() .info("Plugin Enabled");
         PluginManager pm = this.getServer() .getPluginManager();
-        pm.registerEvents(new BlockListener() , this);
+        pm.registerEvents(new BlockPlace() , this);
+        pm.registerEvents(new Interact() , this);
+        LogFile log = new LogFile(this);
+        log.logFile("message");
     }
+
     
 }
+
