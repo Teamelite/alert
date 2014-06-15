@@ -1,4 +1,3 @@
-
 package alert;
 
 import org.bukkit.Bukkit;
@@ -71,11 +70,6 @@ public class BlockPlace implements Listener {
                     p.sendMessage(prefix + ChatColor.RED + name + ChatColor.GREEN + " has placed " + ChatColor.GOLD + block + ChatColor.GREEN + " at " + ChatColor.RED + locText + ChatColor.GREEN + " on world " + ChatColor.GOLD + world);
                 }
             }
-
-            if (e.getBlock() == null) {
-                return;
-            }
         }
     }
-
 }

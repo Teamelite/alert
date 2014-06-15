@@ -14,6 +14,10 @@ public class Interact implements Listener {
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent e) {
 
+        if (e.getClickedBlock() == null) {
+            return;
+        }
+
         if (e.getClickedBlock().getType() == Material.FURNACE) {
             alertPlayers(e);
         }
@@ -71,9 +75,7 @@ public class Interact implements Listener {
                     p.sendMessage(prefix + ChatColor.RED + name + ChatColor.GREEN + " has interacted with " + ChatColor.GOLD + block + ChatColor.GREEN + " at " + ChatColor.RED + locText + ChatColor.GREEN + " on world " + ChatColor.GOLD + world);
                 }
             }
-            if (e.getClickedBlock() == null) {
-                return;
-            }
         }
+
     }
 }
