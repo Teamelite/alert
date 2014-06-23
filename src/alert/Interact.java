@@ -57,6 +57,10 @@ public class Interact implements Listener {
         if (e.getClickedBlock().getType() == Material.STORAGE_MINECART) {
             alertPlayers(e);
         }
+        
+        if (e.getClickedBlock().getType() == Material.ITEM_FRAME) { 
+            alertPlayers(e);
+        }
 
     }
 

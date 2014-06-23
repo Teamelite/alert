@@ -53,6 +53,18 @@ public class BlockPlace implements Listener {
         if (e.getBlock().getType() == Material.STORAGE_MINECART) {
             alertPlayers(e);
         }
+
+        if (e.getBlock().getType() == Material.ITEM_FRAME) {
+            alertPlayers(e);
+        }
+
+        if (e.getBlock().getType() == Material.WORKBENCH) {
+            alertPlayers(e);
+        }
+
+        if (e.getBlock().getType() == Material.ENCHANTMENT_TABLE) {
+            alertPlayers(e);
+        }
     }
 
     private void alertPlayers(BlockPlaceEvent e) {
