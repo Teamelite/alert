@@ -68,7 +68,6 @@ public class Interact implements Listener {
         Block pBlock = e.getClickedBlock();
         String name = e.getPlayer().getDisplayName();
         String locText = pBlock.getLocation().getX() + ", " + pBlock.getLocation().getY() + ", " + pBlock.getLocation().getZ();
-        String prefix = ChatColor.DARK_GRAY + "[" + ChatColor.DARK_RED + "Team" + ChatColor.GOLD + "Elite" + ChatColor.DARK_GRAY + "]";
         Material block = e.getClickedBlock().getType();
         String world = e.getPlayer().getWorld().getName();
 
@@ -76,7 +75,7 @@ public class Interact implements Listener {
             LogFile.logFile(name + " interacted with " + block + " at " + locText + " on world " + world);
             for (Player p : Bukkit.getOnlinePlayers()) {
                 if (p.hasPermission("alert.message") || p.isOp()) {
-                    p.sendMessage(prefix + ChatColor.RED + name + ChatColor.GREEN + " has interacted with " + ChatColor.GOLD + block + ChatColor.GREEN + " at " + ChatColor.RED + locText + ChatColor.GREEN + " on world " + ChatColor.GOLD + world);
+                    p.sendMessage(BlockPlace.prefix + ChatColor.RED + name + ChatColor.GREEN + " has interacted with " + ChatColor.GOLD + block + ChatColor.GREEN + " at " + ChatColor.RED + locText + ChatColor.GREEN + " on world " + ChatColor.GOLD + world);
                 }
             }
         }

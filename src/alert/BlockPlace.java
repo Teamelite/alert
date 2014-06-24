@@ -11,6 +11,8 @@ import org.bukkit.event.block.BlockPlaceEvent;
 
 public class BlockPlace implements Listener {
 
+    public static String prefix = ChatColor.DARK_GRAY + "[" + ChatColor.DARK_RED + "Team" + ChatColor.GOLD + "Elite" + ChatColor.DARK_GRAY + "]";
+    
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent e) {
 
@@ -71,7 +73,6 @@ public class BlockPlace implements Listener {
         Block pBlock = e.getBlockPlaced();
         String name = e.getPlayer().getDisplayName();
         String locText = pBlock.getLocation().getX() + ", " + pBlock.getLocation().getY() + ", " + pBlock.getLocation().getZ();
-        String prefix = ChatColor.DARK_GRAY + "[" + ChatColor.DARK_RED + "Team" + ChatColor.GOLD + "Elite" + ChatColor.DARK_GRAY + "]";
         Material block = e.getBlockPlaced().getType();
         String world = e.getPlayer().getWorld().getName();
 
