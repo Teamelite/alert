@@ -62,6 +62,8 @@ public class Commands implements CommandExecutor {
                 }
             }
 
+        } else {
+            sender.sendMessage(prefix + ChatColor.RED + "There was an internal error in the plugin.");
         }
         return false;
     }
