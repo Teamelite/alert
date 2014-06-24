@@ -37,7 +37,7 @@ public class ChestCount implements Listener {
         }
 
     }
-
+    @EventHandler
     public void onChestBreak(BlockBreakEvent e) {
 
         Player p = e.getPlayer();

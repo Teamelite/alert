@@ -15,7 +15,6 @@ public class Alert extends JavaPlugin {
         PluginManager pm = this.getServer().getPluginManager();
         pm.registerEvents(new BlockPlace(), this);
         pm.registerEvents(new Interact(), this);
-        pm.registerEvents(new ChestCount(), this);
                 
         getCommand("setworld").setExecutor(new Commands());
         getCommand("showworld").setExecutor(new Commands());
@@ -30,7 +29,7 @@ public class Alert extends JavaPlugin {
 
     public void onDisable() {
         Bukkit.getLogger().info("Plugin Disabled");
-        getConfig().set("World", null);
+        getConfig().set("World", "world");
         getConfig().set("World.Chests", 0);
         getConfig().set("World.EnderChests", 0);
     }
