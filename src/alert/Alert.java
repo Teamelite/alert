@@ -15,7 +15,8 @@ public class Alert extends JavaPlugin {
         PluginManager pm = this.getServer().getPluginManager();
         pm.registerEvents(new BlockPlace(), this);
         pm.registerEvents(new Interact(), this);
-
+        pm.registerEvents(new ChestCount(), this);
+                
         getCommand("setworld").setExecutor(new Commands());
         getCommand("showworld").setExecutor(new Commands());
         getCommand("countchests").setExecutor(new Commands());
