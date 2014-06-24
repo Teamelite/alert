@@ -1,5 +1,6 @@
 package alert;
 
+import static alert.BlockPlace.prefix;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -28,12 +29,12 @@ public class ChestCount implements Listener {
 
         if (e.getBlock().getType() == Material.CHEST && e.getPlayer().getWorld().getName().equals(world)) {
             plugin.getConfig().set("World.Chests", count++);
-            p.sendMessage(BlockPlace.prefix + ChatColor.GREEN + "There are: " + ChatColor.GOLD + count + ChatColor.GREEN + " Chests on the map.");
+            p.sendMessage(prefix + ChatColor.GREEN + "There are: " + ChatColor.GOLD + count + ChatColor.GREEN + " Chests on the map.");
         }
 
         if (e.getBlock().getType() == Material.ENDER_CHEST && e.getPlayer().getWorld().getName().equals(world)) {
             plugin.getConfig().set("World.EnderChests", count2++);
-            p.sendMessage(BlockPlace.prefix + ChatColor.GREEN + "There are: " + ChatColor.GOLD + count2 + ChatColor.GREEN + " Ender Chests on the map.");
+            p.sendMessage(prefix + ChatColor.GREEN + "There are: " + ChatColor.GOLD + count2 + ChatColor.GREEN + " Ender Chests on the map.");
         }
 
     }
@@ -44,12 +45,12 @@ public class ChestCount implements Listener {
         
         if (e.getBlock().getType() == Material.CHEST && e.getPlayer().getWorld().getName().equals(world)) {
            plugin.getConfig().set("World.Chests", count--);
-           p.sendMessage(BlockPlace.prefix + ChatColor.GREEN + "There are: " + ChatColor.GOLD + count + ChatColor.GREEN + " Chests on the map.");
+           p.sendMessage(prefix + ChatColor.GREEN + "There are: " + ChatColor.GOLD + count + ChatColor.GREEN + " Chests on the map.");
        }
        
        if (e.getBlock().getType() == Material.ENDER_CHEST && e.getPlayer().getWorld().getName().equals(world)) {
            plugin.getConfig().set("World.EnderChests", count2--);
-           p.sendMessage(BlockPlace.prefix + ChatColor.GREEN + "There are: " + ChatColor.GOLD + count2 + ChatColor.GREEN + " Ender Chests on the map.");
+           p.sendMessage(prefix + ChatColor.GREEN + "There are: " + ChatColor.GOLD + count2 + ChatColor.GREEN + " Ender Chests on the map.");
        }
     }
 
