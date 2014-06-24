@@ -1,4 +1,4 @@
 # Chest Counter #
-World:
-  Chests: 0
-  EnderChests: 0
+World: world
+Chests: 0
+EnderChests: 0

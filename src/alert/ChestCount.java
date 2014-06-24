@@ -1,7 +1,6 @@
 package alert;
 
 import static alert.BlockPlace.prefix;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -19,8 +18,8 @@ public class ChestCount implements Listener {
     }
 
     String world = plugin.getConfig().getString("World");
-    int count = plugin.getConfig().getInt("World.Chests");
-    int count2 = plugin.getConfig().getInt("World.EnderChests");
+    int count = plugin.getConfig().getInt("Chests");
+    int count2 = plugin.getConfig().getInt("EnderChests");
 
     @EventHandler
     public void onChestPlace(BlockPlaceEvent e) {
@@ -28,12 +27,12 @@ public class ChestCount implements Listener {
         Player p = e.getPlayer();
 
         if (e.getBlock().getType() == Material.CHEST && e.getPlayer().getWorld().getName().equals(world)) {
-            plugin.getConfig().set("World.Chests", count++);
+            plugin.getConfig().set("Chests", count++);
             p.sendMessage(prefix + ChatColor.GREEN + "There are: " + ChatColor.GOLD + count + ChatColor.GREEN + " Chests on the map.");
         }
 
         if (e.getBlock().getType() == Material.ENDER_CHEST && e.getPlayer().getWorld().getName().equals(world)) {
-            plugin.getConfig().set("World.EnderChests", count2++);
+            plugin.getConfig().set("EnderChests", count2++);
             p.sendMessage(prefix + ChatColor.GREEN + "There are: " + ChatColor.GOLD + count2 + ChatColor.GREEN + " Ender Chests on the map.");
         }
 
@@ -44,12 +43,12 @@ public class ChestCount implements Listener {
         Player p = e.getPlayer();
 
         if (e.getBlock().getType() == Material.CHEST && e.getPlayer().getWorld().getName().equals(world)) {
-            plugin.getConfig().set("World.Chests", count--);
+            plugin.getConfig().set("Chests", count--);
             p.sendMessage(prefix + ChatColor.GREEN + "There are: " + ChatColor.GOLD + count + ChatColor.GREEN + " Chests on the map.");
         }
 
         if (e.getBlock().getType() == Material.ENDER_CHEST && e.getPlayer().getWorld().getName().equals(world)) {
-            plugin.getConfig().set("World.EnderChests", count2--);
+            plugin.getConfig().set("EnderChests", count2--);
             p.sendMessage(prefix + ChatColor.GREEN + "There are: " + ChatColor.GOLD + count2 + ChatColor.GREEN + " Ender Chests on the map.");
         }
     }

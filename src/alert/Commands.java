@@ -17,18 +17,18 @@ public class Commands implements CommandExecutor {
     private final Plugin instance = getInstance();
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        String worldname = plugin.getConfig().getString("world");
+        String worldname = plugin.getConfig().getString("World");
         World world = (Bukkit.getServer().getWorld(args[0]));
-        int chests = plugin.getConfig().getInt("World.Chests");
-        int echests = plugin.getConfig().getInt("World.EnderChests");
+        int chests = plugin.getConfig().getInt("Chests");
+        int echests = plugin.getConfig().getInt("EnderChests");
 
         if (cmd.getName().equalsIgnoreCase("setworld")) {
             if (world == null) {
                 sender.sendMessage(prefix + ChatColor.GREEN + "The world " + ChatColor.GOLD + args[0] + ChatColor.GREEN + " does not exsist.");
             } else {
                 plugin.getConfig().set("World", args[0]);
-                plugin.getConfig().set("World.Chests", 0);
-                plugin.getConfig().set("World.EnderChests", 0);
+                plugin.getConfig().set("Chests", 0);
+                plugin.getConfig().set("EnderChests", 0);
                 sender.sendMessage(prefix + ChatColor.GREEN + "The world has been set to " + ChatColor.GOLD + args[0]);
             }
         }
@@ -55,8 +55,8 @@ public class Commands implements CommandExecutor {
             if (chests == 0 && echests == 0) {
                 sender.sendMessage(prefix + ChatColor.GREEN + "Chests are already 0");
             } else {
-                plugin.getConfig().set("World.Chests", 0);
-                plugin.getConfig().set("World.EnderChests", 0);
+                plugin.getConfig().set("Chests", 0);
+                plugin.getConfig().set("EnderChests", 0);
                 sender.sendMessage(prefix + ChatColor.GREEN + "The counter has been reset.");
             }
         }
