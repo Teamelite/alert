@@ -13,26 +13,26 @@ public class LogFile {
     public LogFile(Alert instance) {
         LogFile.plugin = instance;
     }
-    
+
     public static void logFile(String message) {
         try {
+            if (plugin != null) {
+                File pluginFolder = plugin.getDataFolder();
+                File log = new File(plugin.getDataFolder(), "log.txt");
+                FileWriter fw = new FileWriter(log, true);
+                pw = new PrintWriter(fw);
 
-            File pluginFolder = plugin.getDataFolder();
-            File log = new File(plugin.getDataFolder(), "log.txt");
-            FileWriter fw = new FileWriter(log, true);
-            pw = new PrintWriter(fw);
-            
-            if (!pluginFolder.exists()) {
-                pluginFolder.mkdir();
+                if (!pluginFolder.exists()) {
+                    pluginFolder.mkdir();
+                }
+
+                if (!log.exists()) {
+                    log.createNewFile();
+                }
+
+                pw.write(message + "\n");
+                pw.flush();
             }
-
-            if (!log.exists()) {
-                log.createNewFile();
-            }
-            
-            pw.write(message + "\n");
-            pw.flush();
-
         } catch (IOException e) {
             e.printStackTrace();
         }
