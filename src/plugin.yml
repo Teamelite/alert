@@ -13,8 +13,8 @@ commands:
         permission: alert.admin
         permission-message: LOL NOPE!!!
     countchests:
-        descripton: Shows the type and amount of chests on teh world.
-        useage: /countchests
+        description: Shows the type and amount of chests on th world.
+        useage: /countchestse
         permission: alert.admin
         permission-message: LOL NOPE!!!
     reset:
