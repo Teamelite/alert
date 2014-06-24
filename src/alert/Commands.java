@@ -17,7 +17,8 @@ public class Commands implements CommandExecutor {
     private final Plugin instance = getInstance();
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        String worldname = plugin.getConfig().getString("World");
+        if (plugin != null) {
+            String worldname = plugin.getConfig().getString("World");
         World world = (Bukkit.getServer().getWorld(args[0]));
         int chests = plugin.getConfig().getInt("Chests");
         int echests = plugin.getConfig().getInt("EnderChests");
@@ -63,6 +64,8 @@ public class Commands implements CommandExecutor {
 
         return false;
 
+
+        }
     }
 
 }
