@@ -38,20 +38,20 @@ public class ChestCount implements Listener {
         }
 
     }
-    
-    public void onChestBreak (BlockBreakEvent e) {
-        
+
+    public void onChestBreak(BlockBreakEvent e) {
+
         Player p = e.getPlayer();
-        
+
         if (e.getBlock().getType() == Material.CHEST && e.getPlayer().getWorld().getName().equals(world)) {
-           plugin.getConfig().set("World.Chests", count--);
-           p.sendMessage(prefix + ChatColor.GREEN + "There are: " + ChatColor.GOLD + count + ChatColor.GREEN + " Chests on the map.");
-       }
-       
-       if (e.getBlock().getType() == Material.ENDER_CHEST && e.getPlayer().getWorld().getName().equals(world)) {
-           plugin.getConfig().set("World.EnderChests", count2--);
-           p.sendMessage(prefix + ChatColor.GREEN + "There are: " + ChatColor.GOLD + count2 + ChatColor.GREEN + " Ender Chests on the map.");
-       }
+            plugin.getConfig().set("World.Chests", count--);
+            p.sendMessage(prefix + ChatColor.GREEN + "There are: " + ChatColor.GOLD + count + ChatColor.GREEN + " Chests on the map.");
+        }
+
+        if (e.getBlock().getType() == Material.ENDER_CHEST && e.getPlayer().getWorld().getName().equals(world)) {
+            plugin.getConfig().set("World.EnderChests", count2--);
+            p.sendMessage(prefix + ChatColor.GREEN + "There are: " + ChatColor.GOLD + count2 + ChatColor.GREEN + " Ender Chests on the map.");
+        }
     }
 
 }

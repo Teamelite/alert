@@ -12,7 +12,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 public class BlockPlace implements Listener {
 
     public static String prefix = ChatColor.DARK_GRAY + "[" + ChatColor.DARK_RED + "Team" + ChatColor.GOLD + "Elite" + ChatColor.DARK_GRAY + "]";
-    
+
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent e) {
 

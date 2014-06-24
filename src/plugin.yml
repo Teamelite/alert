@@ -1,3 +1,24 @@
 name: Alert
 main: alert.Alert
 version: 1
+commands:
+    setworld:
+        description: Set the world for the chest counter.
+        useage: /setworld <world>
+        permission: alert.admin
+        permission-message: LOL NOPE!!!
+    showworld:
+        description: Display the world that is set.
+        useage: /showworld
+        permission: alert.admin
+        permission-message: LOL NOPE!!!
+    countchest:
+        descripton: Shows the type and amount of chests on teh world.
+        useage: /countchests
+        permission: alert.admin
+        permission-message: LOL NOPE!!!
+    reset:
+        description: Reset the chest count.
+        useage: /reset
+        permission: alert.admin
+        permission-message: LOL NOPE!!!
