@@ -1,5 +1,6 @@
 package alert;
 
+import static alert.Alert.getInstance;
 import static alert.BlockPlace.prefix;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -7,14 +8,13 @@ import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.plugin.Plugin;
 
 public class Commands implements CommandExecutor {
 
     private static Alert plugin;
 
-    public Commands(Alert instance) {
-        Commands.plugin = instance;
-    }
+    private final Plugin instance = getInstance();
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         String worldname = plugin.getConfig().getString("world");
@@ -34,7 +34,7 @@ public class Commands implements CommandExecutor {
         }
 
         if (cmd.getName().equalsIgnoreCase("showworld")) {
-            if (worldname == "") {
+            if (worldname == null) {
                 sender.sendMessage(prefix + ChatColor.GREEN + "The world is not set.");
             } else {
                 sender.sendMessage(prefix + ChatColor.GREEN + "The selected world is " + ChatColor.GOLD + worldname);

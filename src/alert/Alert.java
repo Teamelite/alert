@@ -7,6 +7,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Alert extends JavaPlugin {
 
+    public static Plugin instance;
+
     @Override
     public void onEnable() {
         Bukkit.getLogger().info("Plugin Enabled");
@@ -14,17 +16,17 @@ public class Alert extends JavaPlugin {
         pm.registerEvents(new BlockPlace(), this);
         pm.registerEvents(new Interact(), this);
 
-        getCommand("setworld").setExecutor(new Alert());
-        getCommand("showworld").setExecutor(new Alert());
-        getCommand("countchests").setExecutor(new Alert());
-        getCommand("reset").setExecutor(new Alert());
+        getCommand("setworld").setExecutor(new Commands());
+        getCommand("showworld").setExecutor(new Commands());
+        getCommand("countchests").setExecutor(new Commands());
+        getCommand("reset").setExecutor(new Commands());
 
-        LogFile log = new LogFile(this);
+        LogFile log = new LogFile();
         log.logFile("Block place and interactions");
         getConfig().options().copyDefaults(true);
         saveConfig();
     }
-    
+
     public void onDisable() {
         Bukkit.getLogger().info("Plugin Disabled");
         getConfig().set("World", null);
@@ -32,4 +34,7 @@ public class Alert extends JavaPlugin {
         getConfig().set("World.EnderChests", 0);
     }
 
+    public static Plugin getInstance() {
+        return instance;
+    }
 }
