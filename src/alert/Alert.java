@@ -21,7 +21,7 @@ public class Alert extends JavaPlugin {
         getCommand("countchests").setExecutor(new Commands());
         getCommand("reset").setExecutor(new Commands());
 
-        LogFile log = new LogFile();
+        LogFile log = new LogFile(this);
         log.logFile("Block place and interactions");
         getConfig().options().copyDefaults(true);
         saveConfig();
