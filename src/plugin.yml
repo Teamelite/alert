@@ -12,7 +12,7 @@ commands:
         useage: /showworld
         permission: alert.admin
         permission-message: LOL NOPE!!!
-    countchest:
+    countchests:
         descripton: Shows the type and amount of chests on teh world.
         useage: /countchests
         permission: alert.admin
