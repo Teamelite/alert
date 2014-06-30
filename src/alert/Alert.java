@@ -34,8 +34,4 @@ public class Alert extends JavaPlugin {
         getConfig().set("World.Chests", 0);
         getConfig().set("World.EnderChests", 0);
     }
-
-    public static Plugin getInstance() {
-        return instance;
-    }
 }
