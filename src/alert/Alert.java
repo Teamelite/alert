@@ -7,7 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Alert extends JavaPlugin {
 
-    public static Plugin instance;
+    private static Plugin plugin;
 
     @Override
     public void onEnable() {
@@ -16,6 +16,7 @@ public class Alert extends JavaPlugin {
         pm.registerEvents(new BlockPlace(), this);
         pm.registerEvents(new Interact(), this);
         pm.registerEvents(new ChestCount(), this);
+        plugin = this;
                 
         getCommand("setworld").setExecutor(new Commands());
         getCommand("showworld").setExecutor(new Commands());
@@ -33,5 +34,9 @@ public class Alert extends JavaPlugin {
         getConfig().set("World", "world");
         getConfig().set("World.Chests", 0);
         getConfig().set("World.EnderChests", 0);
+    }
+    
+    public static Plugin getInstance(){
+        return plugin;
     }
 }

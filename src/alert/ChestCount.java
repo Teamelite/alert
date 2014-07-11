@@ -8,10 +8,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.plugin.Plugin;
 
 public class ChestCount implements Listener {
     
-    private static Alert plugin;
+    private static final Plugin plugin = Alert.getInstance();
 
     String world = plugin.getConfig().getString("World");
     int count = plugin.getConfig().getInt("Chests");
