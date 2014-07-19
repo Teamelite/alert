@@ -22,6 +22,9 @@ public class Commands implements CommandExecutor {
         int echests = plugin.getConfig().getInt("EnderChests");
 
         if (cmd.getName().equalsIgnoreCase("setworld")) {
+            if (args.length <1) {
+                return false;
+            }
             if (world == null) {
                 sender.sendMessage(prefix + ChatColor.GREEN + "The world " + ChatColor.GOLD + args[0] + ChatColor.GREEN + " does not exsist.");
                 return true;

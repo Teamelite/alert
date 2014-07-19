@@ -11,14 +11,14 @@ public class Alert extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        plugin = this;
         Bukkit.getLogger().info("Plugin Enabled");
         getConfig().options().copyDefaults(true);
         saveConfig();
         PluginManager pm = this.getServer().getPluginManager();
         pm.registerEvents(new BlockPlace(), this);
         pm.registerEvents(new Interact(), this);
-        //pm.registerEvents(new ChestCount(), this);
-        plugin = this;
+        pm.registerEvents(new ChestCount(), this);
         Commands cmds = new Commands();
                 
         getCommand("setworld").setExecutor(cmds);
