@@ -12,21 +12,22 @@ public class Alert extends JavaPlugin {
     @Override
     public void onEnable() {
         Bukkit.getLogger().info("Plugin Enabled");
+        getConfig().options().copyDefaults(true);
+        saveConfig();
         PluginManager pm = this.getServer().getPluginManager();
         pm.registerEvents(new BlockPlace(), this);
         pm.registerEvents(new Interact(), this);
-        pm.registerEvents(new ChestCount(), this);
+        //pm.registerEvents(new ChestCount(), this);
         plugin = this;
+        Commands cmds = new Commands();
                 
-        getCommand("setworld").setExecutor(new Commands());
-        getCommand("showworld").setExecutor(new Commands());
-        getCommand("countchests").setExecutor(new Commands());
-        getCommand("reset").setExecutor(new Commands());
+        getCommand("setworld").setExecutor(cmds);
+        getCommand("showworld").setExecutor(cmds);
+        getCommand("countchests").setExecutor(cmds);
+        getCommand("reset").setExecutor(cmds);
 
         LogFile log = new LogFile(this);
         log.logFile("Block place and interactions");
-        getConfig().options().copyDefaults(true);
-        saveConfig();
     }
 
     public void onDisable() {

@@ -14,7 +14,7 @@ public class ChestCount implements Listener {
     
     private static final Plugin plugin = Alert.getInstance();
 
-    String world = plugin.getConfig().getString("World");
+    private final String world = plugin.getConfig().getString("World");
     int count = plugin.getConfig().getInt("Chests");
     int count2 = plugin.getConfig().getInt("EnderChests");
 

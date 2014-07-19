@@ -24,19 +24,23 @@ public class Commands implements CommandExecutor {
         if (cmd.getName().equalsIgnoreCase("setworld")) {
             if (world == null) {
                 sender.sendMessage(prefix + ChatColor.GREEN + "The world " + ChatColor.GOLD + args[0] + ChatColor.GREEN + " does not exsist.");
+                return true;
             } else {
                 plugin.getConfig().set("World", args[0]);
                 plugin.getConfig().set("Chests", 0);
                 plugin.getConfig().set("EnderChests", 0);
                 sender.sendMessage(prefix + ChatColor.GREEN + "The world has been set to " + ChatColor.GOLD + args[0]);
+                return true;
             }
         }
 
         if (cmd.getName().equalsIgnoreCase("showworld")) {
             if (worldname == null) {
                 sender.sendMessage(prefix + ChatColor.GREEN + "The world is not set.");
+                return true;
             } else {
                 sender.sendMessage(prefix + ChatColor.GREEN + "The selected world is " + ChatColor.GOLD + worldname);
+                return true;
             }
         }
 
@@ -44,19 +48,23 @@ public class Commands implements CommandExecutor {
 
             if (chests == 0 && echests == 0) {
                 sender.sendMessage(prefix + ChatColor.GREEN + "There are no chests on the world.");
+                return true;
             } else {
                 sender.sendMessage(prefix + ChatColor.GREEN + "Chests: " + ChatColor.GOLD + chests);
                 sender.sendMessage(prefix + ChatColor.GREEN + "Ender Chests: " + ChatColor.GOLD + echests);
+                return true;
             }
         }
 
         if (cmd.getName().equalsIgnoreCase("reset")) {
             if (chests == 0 && echests == 0) {
                 sender.sendMessage(prefix + ChatColor.GREEN + "Chests are already 0");
+                return true;
             } else {
                 plugin.getConfig().set("Chests", 0);
                 plugin.getConfig().set("EnderChests", 0);
                 sender.sendMessage(prefix + ChatColor.GREEN + "The counter has been reset.");
+                return true;
             }
         }
         return false;
