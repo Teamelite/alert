@@ -1,9 +1,12 @@
 package alert;
 
+import static alert.Alert.plugin;
 import static alert.BlockPlace.prefix;
+import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,53 +17,58 @@ public class Interact implements Listener {
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent e) {
+        World world = e.getPlayer().getWorld();
+        List<String> ignore = plugin.getConfig().getStringList("IgnoreWorlds");
 
-        if (e.getClickedBlock() == null) {
-            return;
-        }
+        if (ignore.contains(world.getName())) {
+        } else {
+            if (e.getClickedBlock() == null) {
+                return;
+            }
 
-        if (e.getClickedBlock().getType() == Material.FURNACE) {
-            alertPlayers(e);
-        }
+            if (e.getClickedBlock().getType() == Material.FURNACE) {
+                alertPlayers(e);
+            }
 
-        if (e.getClickedBlock().getType() == Material.DISPENSER) {
-            alertPlayers(e);
-        }
+            if (e.getClickedBlock().getType() == Material.DISPENSER) {
+                alertPlayers(e);
+            }
 
-        if (e.getClickedBlock().getType() == Material.DROPPER) {
-            alertPlayers(e);
-        }
+            if (e.getClickedBlock().getType() == Material.DROPPER) {
+                alertPlayers(e);
+            }
 
-        if (e.getClickedBlock().getType() == Material.CHEST) {
-            alertPlayers(e);
-        }
+            if (e.getClickedBlock().getType() == Material.CHEST) {
+                alertPlayers(e);
+            }
 
-        if (e.getClickedBlock().getType() == Material.ENDER_CHEST) {
-            alertPlayers(e);
-        }
+            if (e.getClickedBlock().getType() == Material.ENDER_CHEST) {
+                alertPlayers(e);
+            }
 
-        if (e.getClickedBlock().getType() == Material.TRAPPED_CHEST) {
-            alertPlayers(e);
-        }
+            if (e.getClickedBlock().getType() == Material.TRAPPED_CHEST) {
+                alertPlayers(e);
+            }
 
-        if (e.getClickedBlock().getType() == Material.HOPPER) {
-            alertPlayers(e);
-        }
+            if (e.getClickedBlock().getType() == Material.HOPPER) {
+                alertPlayers(e);
+            }
 
-        if (e.getClickedBlock().getType() == Material.HOPPER_MINECART) {
-            alertPlayers(e);
-        }
+            if (e.getClickedBlock().getType() == Material.HOPPER_MINECART) {
+                alertPlayers(e);
+            }
 
-        if (e.getClickedBlock().getType() == Material.POWERED_MINECART) {
-            alertPlayers(e);
-        }
+            if (e.getClickedBlock().getType() == Material.POWERED_MINECART) {
+                alertPlayers(e);
+            }
 
-        if (e.getClickedBlock().getType() == Material.STORAGE_MINECART) {
-            alertPlayers(e);
-        }
+            if (e.getClickedBlock().getType() == Material.STORAGE_MINECART) {
+                alertPlayers(e);
+            }
 
-        if (e.getClickedBlock().getType() == Material.ITEM_FRAME) {
-            alertPlayers(e);
+            if (e.getClickedBlock().getType() == Material.ITEM_FRAME) {
+                alertPlayers(e);
+            }
         }
 
     }

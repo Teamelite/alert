@@ -1,5 +1,6 @@
 package alert;
 
+import static alert.Alert.plugin;
 import static alert.BlockPlace.prefix;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -11,8 +12,6 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.plugin.Plugin;
 
 public class ChestCount implements Listener {
-
-    private static final Plugin plugin = Alert.getInstance();
 
     String world = plugin.getConfig().getString("World");
     public static int count = plugin.getConfig().getInt("Chests");

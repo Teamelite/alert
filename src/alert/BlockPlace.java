@@ -1,8 +1,11 @@
 package alert;
 
+import static alert.Alert.plugin;
+import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -15,57 +18,62 @@ public class BlockPlace implements Listener {
 
     @EventHandler
     public void onBlockPlace(BlockPlaceEvent e) {
+        World world = e.getPlayer().getWorld();
+        List<String> ignore = plugin.getConfig().getStringList("IgnoreWorlds");
 
-        if (e.getBlock().getType() == Material.FURNACE) {
-            alertPlayers(e);
-        }
+        if (ignore.contains(world.getName())) {
+        } else {
+            if (e.getBlock().getType() == Material.FURNACE) {
+                alertPlayers(e);
+            }
 
-        if (e.getBlock().getType() == Material.DISPENSER) {
-            alertPlayers(e);
-        }
+            if (e.getBlock().getType() == Material.DISPENSER) {
+                alertPlayers(e);
+            }
 
-        if (e.getBlock().getType() == Material.DROPPER) {
-            alertPlayers(e);
-        }
+            if (e.getBlock().getType() == Material.DROPPER) {
+                alertPlayers(e);
+            }
 
-        if (e.getBlock().getType() == Material.CHEST) {
-            alertPlayers(e);
-        }
+            if (e.getBlock().getType() == Material.CHEST) {
+                alertPlayers(e);
+            }
 
-        if (e.getBlock().getType() == Material.ENDER_CHEST) {
-            alertPlayers(e);
-        }
+            if (e.getBlock().getType() == Material.ENDER_CHEST) {
+                alertPlayers(e);
+            }
 
-        if (e.getBlock().getType() == Material.TRAPPED_CHEST) {
-            alertPlayers(e);
-        }
+            if (e.getBlock().getType() == Material.TRAPPED_CHEST) {
+                alertPlayers(e);
+            }
 
-        if (e.getBlock().getType() == Material.HOPPER) {
-            alertPlayers(e);
-        }
+            if (e.getBlock().getType() == Material.HOPPER) {
+                alertPlayers(e);
+            }
 
-        if (e.getBlock().getType() == Material.HOPPER_MINECART) {
-            alertPlayers(e);
-        }
+            if (e.getBlock().getType() == Material.HOPPER_MINECART) {
+                alertPlayers(e);
+            }
 
-        if (e.getBlock().getType() == Material.POWERED_MINECART) {
-            alertPlayers(e);
-        }
+            if (e.getBlock().getType() == Material.POWERED_MINECART) {
+                alertPlayers(e);
+            }
 
-        if (e.getBlock().getType() == Material.STORAGE_MINECART) {
-            alertPlayers(e);
-        }
+            if (e.getBlock().getType() == Material.STORAGE_MINECART) {
+                alertPlayers(e);
+            }
 
-        if (e.getBlock().getType() == Material.ITEM_FRAME) {
-            alertPlayers(e);
-        }
+            if (e.getBlock().getType() == Material.ITEM_FRAME) {
+                alertPlayers(e);
+            }
 
-        if (e.getBlock().getType() == Material.WORKBENCH) {
-            alertPlayers(e);
-        }
+            if (e.getBlock().getType() == Material.WORKBENCH) {
+                alertPlayers(e);
+            }
 
-        if (e.getBlock().getType() == Material.ENCHANTMENT_TABLE) {
-            alertPlayers(e);
+            if (e.getBlock().getType() == Material.ENCHANTMENT_TABLE) {
+                alertPlayers(e);
+            }
         }
     }
 

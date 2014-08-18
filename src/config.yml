@@ -2,3 +2,5 @@
 World: world
 Chests: 0
 EnderChests: 0
+IgnoreWorlds:
+    - world

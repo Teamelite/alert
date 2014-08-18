@@ -7,7 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Alert extends JavaPlugin {
 
-    private static Plugin plugin;
+    public static Plugin plugin;
 
     @Override
     public void onEnable() {
