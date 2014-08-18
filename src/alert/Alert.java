@@ -25,6 +25,8 @@ public class Alert extends JavaPlugin {
         getCommand("showworld").setExecutor(cmds);
         getCommand("countchests").setExecutor(cmds);
         getCommand("reset").setExecutor(cmds);
+        getCommand("ignoreworld").setExecutor(cmds);
+        getCommand("logworld").setExecutor(cmds);
 
         LogFile log = new LogFile(this);
         log.logFile("Block place and interactions");

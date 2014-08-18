@@ -22,3 +22,13 @@ commands:
         usage: /reset
         permission: alert.admin
         permission-message: LOL NOPE!!!
+    ignoreworld:
+        description: Stops logging the placement and interactions on the world.
+        usage: /ignoreworld <world>
+        permission: alert.admin
+        permission-message: LOL NOPE!!!
+    logworld:
+        description: Starts logging the placement and interactions on the world.
+        usage: /logworld <world>
+        permission: alert.admin
+        permission-message: LOL NOPE!!!
