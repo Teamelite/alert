@@ -86,8 +86,8 @@ public class Commands implements CommandExecutor {
                 sender.sendMessage(prefix + ChatColor.GREEN + "The world " + ChatColor.GOLD + args[0] + ChatColor.GREEN + " does not exsist.");
                 return true;
             } else {
-                worldList.add("test");
-                sender.sendMessage(prefix + "" + ChatColor.GOLD + args[0] + ChatColor.GREEN + " is now Ignored.");
+                worldList.add(args[0]);
+                sender.sendMessage(prefix + " " + ChatColor.GOLD + args[0] + ChatColor.GREEN + " is now Ignored.");
                 return true;
             }
         }
@@ -98,11 +98,11 @@ public class Commands implements CommandExecutor {
             }
             World world = (Bukkit.getServer().getWorld(args[0]));
             if (world == null) {
-                sender.sendMessage(prefix + "" + ChatColor.GREEN + "The world " + ChatColor.GOLD + args[0] + ChatColor.GREEN + " does not exsist.");
+                sender.sendMessage(prefix + ChatColor.GREEN + "The world " + ChatColor.GOLD + args[0] + ChatColor.GREEN + " does not exsist.");
                 return true;
             } else {
                 worldList.remove(args[0]);
-                sender.sendMessage(prefix + ChatColor.GOLD + args[0] + ChatColor.GREEN + " is now logged.");
+                sender.sendMessage(prefix + " " + ChatColor.GOLD + args[0] + ChatColor.GREEN + " is now logged.");
                 return true;
             }
         }
