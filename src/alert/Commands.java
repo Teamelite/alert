@@ -36,6 +36,7 @@ public class Commands implements CommandExecutor {
                 plugin.getConfig().set("World", args[0]);
                 plugin.getConfig().set("Chests", 0);
                 plugin.getConfig().set("EnderChests", 0);
+                plugin.saveConfig(); 
                 sender.sendMessage(prefix + ChatColor.GREEN + "The world has been set to " + ChatColor.GOLD + args[0]);
                 return true;
             }
@@ -87,6 +88,7 @@ public class Commands implements CommandExecutor {
                 return true;
             } else {
                 worldList.add(args[0]);
+                plugin.saveConfig();
                 sender.sendMessage(prefix + " " + ChatColor.GOLD + args[0] + ChatColor.GREEN + " is now Ignored.");
                 return true;
             }
@@ -102,6 +104,7 @@ public class Commands implements CommandExecutor {
                 return true;
             } else {
                 worldList.remove(args[0]);
+                plugin.saveConfig();
                 sender.sendMessage(prefix + " " + ChatColor.GOLD + args[0] + ChatColor.GREEN + " is now logged.");
                 return true;
             }
