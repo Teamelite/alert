@@ -88,7 +88,7 @@ public class BlockPlace implements Listener {
             LogFile.logFile(name + " placed " + block + " at " + locText + " on world " + world);
             for (Player p : Bukkit.getOnlinePlayers()) {
                 if (p.hasPermission("alert.message") || p.isOp()) {
-                    p.sendMessage(prefix + ChatColor.RED + name + ChatColor.GREEN + " has placed " + ChatColor.GOLD + block + ChatColor.GREEN + " at " + ChatColor.RED + locText + ChatColor.GREEN + " on world " + ChatColor.GOLD + world);
+                    p.sendMessage(prefix + ChatColor.RED + name + ChatColor.GOLD + " has placed " + ChatColor.GREEN + block + ChatColor.GOLD + " at " + ChatColor.RED + locText + ChatColor.GOLD + " on world " + ChatColor.GREEN + world);
                 }
             }
         }

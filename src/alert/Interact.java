@@ -84,7 +84,7 @@ public class Interact implements Listener {
             LogFile.logFile(name + " interacted with " + block + " at " + locText + " on world " + world);
             for (Player p : Bukkit.getOnlinePlayers()) {
                 if (p.hasPermission("alert.message") || p.isOp()) {
-                    p.sendMessage(prefix + ChatColor.RED + name + ChatColor.GREEN + " has interacted with " + ChatColor.GOLD + block + ChatColor.GREEN + " at " + ChatColor.RED + locText + ChatColor.GREEN + " on world " + ChatColor.GOLD + world);
+                    p.sendMessage(prefix + ChatColor.RED + name + ChatColor.GOLD + " has interacted with " + ChatColor.GREEN + block + ChatColor.GOLD + " at " + ChatColor.RED + locText + ChatColor.GOLD + " on world " + ChatColor.GREEN + world);
                 }
             }
         }
