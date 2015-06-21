@@ -1,7 +1,7 @@
-package alert;
+package io.teamelite.alert;
 
-import static alert.Alert.plugin;
-import static alert.BlockPlace.prefix;
+import static io.teamelite.alert.Alert.plugin;
+import static io.teamelite.alert.BlockPlace.prefix;
 import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -84,7 +84,7 @@ public class Interact implements Listener {
             LogFile.logFile(name + " interacted with " + block + " at " + locText + " on world " + world);
             for (Player p : Bukkit.getOnlinePlayers()) {
                 if (p.hasPermission("alert.message") || p.isOp()) {
-                    p.sendMessage(prefix + ChatColor.RED + name + ChatColor.GREEN + " has interacted with " + ChatColor.GOLD + block + ChatColor.GREEN + " at " + ChatColor.RED + locText + ChatColor.GREEN + " on world " + ChatColor.GOLD + world);
+                    p.sendMessage(prefix + name + ChatColor.GOLD + " has interacted with " + block + " at " + locText + " on world " + world);
                 }
             }
         }

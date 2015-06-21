@@ -1,4 +1,4 @@
-package alert;
+package io.teamelite.alert;
 
 import java.io.File;
 import java.io.FileWriter;

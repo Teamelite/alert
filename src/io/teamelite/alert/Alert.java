@@ -1,4 +1,5 @@
-package alert;
+package io.teamelite.alert;
+
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -28,8 +29,8 @@ public class Alert extends JavaPlugin {
         getCommand("ignoreworld").setExecutor(cmds);
         getCommand("logworld").setExecutor(cmds);
 
-        LogFile log = new LogFile(this);
-        log.logFile("Block place and interactions");
+
+        LogFile.logFile("Block place and interactions");
     }
 
     public void onDisable() {

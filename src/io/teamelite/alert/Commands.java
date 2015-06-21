@@ -1,8 +1,8 @@
-package alert;
+package io.teamelite.alert;
 
-import static alert.BlockPlace.prefix;
-import static alert.ChestCount.count;
-import static alert.ChestCount.count2;
+import static io.teamelite.alert.BlockPlace.prefix;
+import static io.teamelite.alert.ChestCount.count;
+import static io.teamelite.alert.ChestCount.count2;
 import java.util.List;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -30,23 +30,24 @@ public class Commands implements CommandExecutor {
             }
             World world = (Bukkit.getServer().getWorld(args[0]));
             if (world == null) {
-                sender.sendMessage(prefix + ChatColor.GREEN + "The world " + ChatColor.GOLD + args[0] + ChatColor.GREEN + " does not exsist.");
+                sender.sendMessage(prefix + ChatColor.GOLD + "The world " + ChatColor.GREEN + args[0] + ChatColor.GOLD + " does not exsist.");
                 return true;
             } else {
                 plugin.getConfig().set("World", args[0]);
                 plugin.getConfig().set("Chests", 0);
                 plugin.getConfig().set("EnderChests", 0);
-                sender.sendMessage(prefix + ChatColor.GREEN + "The world has been set to " + ChatColor.GOLD + args[0]);
+                plugin.saveConfig(); 
+                sender.sendMessage(prefix + ChatColor.GOLD + "The world has been set to " + ChatColor.GREEN + args[0]);
                 return true;
             }
         }
 
         if (cmd.getName().equalsIgnoreCase("showworld")) {
             if (worldname == null) {
-                sender.sendMessage(prefix + ChatColor.GREEN + "The world is not set.");
+                sender.sendMessage(prefix + ChatColor.GOLD + "The world is not set.");
                 return true;
             } else {
-                sender.sendMessage(prefix + ChatColor.GREEN + "The selected world is " + ChatColor.GOLD + worldname);
+                sender.sendMessage(prefix + ChatColor.GOLD + "The selected world is " + ChatColor.GREEN + worldname);
                 return true;
             }
         }
@@ -54,25 +55,25 @@ public class Commands implements CommandExecutor {
         if (cmd.getName().equalsIgnoreCase("countchests")) {
 
             if (chests == 0 && echests == 0) {
-                sender.sendMessage(prefix + ChatColor.GREEN + "There are no chests on the world.");
+                sender.sendMessage(prefix + ChatColor.GOLD + "There are no chests on the world.");
                 return true;
             } else {
-                sender.sendMessage(prefix + ChatColor.GREEN + "Chests: " + ChatColor.GOLD + chests);
-                sender.sendMessage(prefix + ChatColor.GREEN + "Ender Chests: " + ChatColor.GOLD + echests);
+                sender.sendMessage(prefix + ChatColor.GOLD + "Chests: " + ChatColor.GREEN + chests);
+                sender.sendMessage(prefix + ChatColor.GOLD + "Ender Chests: " + ChatColor.GREEN + echests);
                 return true;
             }
         }
 
         if (cmd.getName().equalsIgnoreCase("reset") && sender.isOp()) {
             if (chests == 0 && echests == 0) {
-                sender.sendMessage(prefix + ChatColor.GREEN + "Chests are already 0");
+                sender.sendMessage(prefix + ChatColor.GOLD + "Chests are already 0");
                 return true;
             } else {
                 plugin.getConfig().set("Chests", 0);
                 plugin.getConfig().set("EnderChests", 0);
                 count = 0;
                 count2 = 0;
-                sender.sendMessage(prefix + ChatColor.GREEN + "The counter has been reset.");
+                sender.sendMessage(prefix + ChatColor.GOLD + "The counter has been reset.");
                 return true;
             }
         }
@@ -83,11 +84,13 @@ public class Commands implements CommandExecutor {
             }
             World world = (Bukkit.getServer().getWorld(args[0]));
             if (world == null) {
-                sender.sendMessage(prefix + ChatColor.GREEN + "The world " + ChatColor.GOLD + args[0] + ChatColor.GREEN + " does not exsist.");
+                sender.sendMessage(prefix + ChatColor.GOLD + "The world " + ChatColor.GREEN + args[0] + ChatColor.GOLD + " does not exsist.");
                 return true;
             } else {
                 worldList.add(args[0]);
-                sender.sendMessage(prefix + " " + ChatColor.GOLD + args[0] + ChatColor.GREEN + " is now Ignored.");
+                plugin.getConfig().set("IgnoreWorlds", worldList);
+                plugin.saveConfig();
+                sender.sendMessage(prefix + " " + ChatColor.GREEN + args[0] + ChatColor.GOLD + " is now Ignored.");
                 return true;
             }
         }
@@ -98,11 +101,13 @@ public class Commands implements CommandExecutor {
             }
             World world = (Bukkit.getServer().getWorld(args[0]));
             if (world == null) {
-                sender.sendMessage(prefix + ChatColor.GREEN + "The world " + ChatColor.GOLD + args[0] + ChatColor.GREEN + " does not exsist.");
+                sender.sendMessage(prefix + ChatColor.GOLD + "The world " + ChatColor.GREEN + args[0] + ChatColor.GOLD + " does not exsist.");
                 return true;
             } else {
                 worldList.remove(args[0]);
-                sender.sendMessage(prefix + " " + ChatColor.GOLD + args[0] + ChatColor.GREEN + " is now logged.");
+                plugin.getConfig().set("IgnoreWorlds", worldList);
+                plugin.saveConfig();
+                sender.sendMessage(prefix + " " + ChatColor.GREEN + args[0] + ChatColor.GOLD + " is now logged.");
                 return true;
             }
         }

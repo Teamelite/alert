@@ -1,5 +1,5 @@
 name: Alert
-main: alert.Alert
+main: io.teamelite.alert.Alert
 version: 1
 commands:
     setworld:
